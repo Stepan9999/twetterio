@@ -1,0 +1,1 @@
+export { default as MainFeed } from './MaineFeed.jsx';

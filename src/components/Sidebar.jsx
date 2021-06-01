@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  const [modalShow, setModalShow] = React.useState(false);
   return (
     <aside className="main_aside">
       <nav className="main_aside_nav">

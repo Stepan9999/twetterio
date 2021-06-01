@@ -3,32 +3,27 @@ import TweetForm from "./TweetForm.jsx";
 import Tweet from './Tweet.jsx'
 
 class Feed extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    // this.onTweetLike=this.onTweetLike.bind(this)
   }
-  // onTweetLike(like){
-  //   like.current.classList.add('redLike')
-  // } 
-  // onTweetRetweet(_id){
-  //   classList.add("redLike")
-  // }
   render() {
-    const { tweets = [] } = this.props
+    const { tweets = [], onLike, onComment, onReply } = this.props
     return (
       <div className="feed">
         <TweetForm />
-       {tweets.map(({ user={ }, createdAt, content, numbers, _id }) => (
-         <Tweet 
-          key={_id} 
-          user={user} 
-          createdAt={createdAt} 
-          content={content} 
-          numbers={numbers} 
-          _id={_id}
-          // onLike={this.onTweetLike} 
-          // onRetweet={this.onTweetRetweet}
-        />))}
+        {tweets.map(({ user = {}, createdAt, content, numbers, _id, statistic }) => (
+          <Tweet
+            key={_id}
+            user={user}
+            createdAt={createdAt}
+            content={content}
+            numbers={numbers}
+            id={_id}
+            statistic={statistic}
+            onLikeClick={onLike}
+            onCommentClick={onComment}
+            onReplyClick={onReply}
+          />))}
       </div>
     );
   }

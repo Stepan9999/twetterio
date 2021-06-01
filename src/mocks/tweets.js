@@ -5,7 +5,11 @@ const tweets = new Array(12).fill(null).map( e =>{
         _id: faker.datatype.uuid(),
         createdAt: faker.date.recent(),
         content: faker.lorem.words(42),
-        numbers: faker.datatype.number(),
+        statistic: {
+            likes: faker.datatype.number(2442),
+            comments: faker.datatype.number(2442),
+            replies: faker.datatype.number(2442)
+        }, 
         user: {
             firstName: faker.name.firstName(),
             lastName: faker.name.lastName(),

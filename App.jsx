@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Header from "./src/components/Header.jsx";
-import Feed from "./src/components/Feed.jsx";
+import { MainFeed } from "./src/containers";
 import Sidebar from "./src/components/Sidebar.jsx";
-import tweets from "./src/mocks/tweets.js"
 
 class App extends Component {
   constructor(props) {
@@ -11,18 +10,14 @@ class App extends Component {
       tweets: []
     }
   };
-  componentDidMount() {
-    this.setState({
-      tweets
-    })
-  }
+  
   render() {
     return (
       <div className="wrap">
         <Header/>
         <main className="main">
           <Sidebar />
-          <Feed tweets = {tweets}/>
+          <MainFeed/>
         </main>
       </div>
     );
